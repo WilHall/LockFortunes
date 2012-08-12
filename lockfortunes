@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$(/usr/local/bin/fortune | /usr/bin/sed "s/\"//g")"
