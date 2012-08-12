@@ -1,5 +1,11 @@
 LockFortunes
 =============
+---
+
+About
+-----
+
+LockFortunes is a very simple bash script for changing the OSX Lock Screen text to a random fortune, using fortune-mod.
 
 Dependencies
 ------------
@@ -8,31 +14,41 @@ Dependencies
 **Installing from a package manager:**
 
 *Brew*
-        brew install fortune
+```bash
+brew install fortune
+```
 
 *Fink*
-        sudo apt-get install fortune-mod
-        sudo apt-get install fortunes-off
-        sudo apt-get install fortunes
+```bash
+sudo apt-get install fortune-mod
+sudo apt-get install fortunes-off
+sudo apt-get install fortunes
+```
 
 *MacPorts* (guessing on this one)
-        sudo port install fortune-mod
+```bash
+sudo port install fortune-mod
+```
 
 Usage
 -----
 
-LockFortunes is a *very* simple bash script for changing the OSX Lock Screen text to a random fortune, using *fortune-mod*.
-
 The script is a measly one line of code:
-        sudo /usr/bin/defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$(/usr/local/bin/fortune | /usr/bin/sed "s/\"//g")"
+```bash
+sudo /usr/bin/defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$(/usr/local/bin/fortune | /usr/bin/sed "s/\"//g")"
+```
 
 I wrote this with the intention of running it from my *crontab*.
 
 First, add it to the **root** crontab (*editing com.apple.loginwindow required root permissions*):
-        sudo crontab -u root -e
+```bash
+sudo crontab -u root -e
+```
 
 I wanted to run it every minute:
-        */1 * * * * /usr/bin/lockfortunes
+```bash
+*/1 * * * * /usr/bin/lockfortunes
+```
 
 Now I get a random fortune when my lock screen pops up.
 
